@@ -25,8 +25,9 @@ exports.cfg =
     'short-name': 'TLRC'
     start_url: 'index.html'
     theme_color: '#333'
+    scope: 'https://othelarian.github.io/the-lost-rat-compendium'
   static: 'static'
-  version: '0.2.0'
+  version: '0.3.0'
   web:
     html:
       src: ("#{webpath}/#{file}" for file in ['index.pug'])

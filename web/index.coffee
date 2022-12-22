@@ -72,6 +72,6 @@ TLRC =
 window.TLRC = TLRC
 
 window.initTlrc = ->
-  if navigator.serviceWorker? then navigator.serviceWorker.register 'sw.js'
+  if navigator.serviceWorker isnt null then navigator.serviceWorker.register 'sw.js'
   TLRC.init()
 
