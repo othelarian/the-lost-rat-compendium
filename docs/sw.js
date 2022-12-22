@@ -1,1 +1,28 @@
-self.addEventListener("install",(a=>a.waitUntil((async()=>{var a;return a=await caches.open("tlrc_offline"),await a.add(new Request("index.html",{cache:"reload"}))})()))),self.addEventListener("activate",(a=>a.waitUntil((async()=>{if(null!=self.registration.navigationPreload)return await self.registration.navigationPreload.enable()})())));
+const OFFLINE_VERSION = 2;
+const CACHE_NAME = "tlrc_offline";
+const OFFLINE_URL = "index.html";
+
+self.addEventListener("install", (evt) => {
+  evt.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await cache.add(new Request(OFFLINE_URL, {cache: "reload"}));
+  })());
+});
+
+self.addEventListener("activate", (evt) => {
+  evt.waitUntil((async () => {
+    if ("navigationPreload" in self.registration) {
+      await self.registration.navigationPreload.enable();
+    }
+  })());
+  self.clients.claim();
+});
+
+self.addEventListener("fetch", (evt) => {
+  if (evt.request.mode == "navigate") {
+    //
+    // TODO: maybe one day
+    //
+  }
+});
+
