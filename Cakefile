@@ -64,8 +64,9 @@ pwaSW = (cb) ->
     in_opts = {input: src_file, plugins: [rollCoffee {bare: true}]}
     out_opts =
       file: "./#{gen_file}"
-      format: 'iife'
+      format: 'cjs'
       plugins: (if cfg.envRelease then [terser()] else [])
+      strict: false
     try
       await (await rollup in_opts).write out_opts
       traceExec 'sw'
