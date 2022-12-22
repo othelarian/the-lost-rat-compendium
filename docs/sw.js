@@ -1,0 +1,1 @@
+!function(){"use strict";self.addEventListener("install",(a=>a.waitUntil((async()=>{var a;return a=await caches.open("tlrc_offline"),await a.add(new Request("index.html",{cache:"reload"}))})()))),self.addEventListener("activate",(a=>a.waitUntil((async()=>{if(null!=self.registration.navigationPreload)return await self.registration.navigationPreload.enable()})())))}();

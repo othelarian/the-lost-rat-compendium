@@ -1,0 +1,113 @@
+$back_col: #419
+$brd_col: #459
+
+@mixin tlrc-block($padv: 5px, $padh: 15px)
+  border: 5px double $brd_col
+  border-radius: 50% 20% / 10% 40%
+  background: $back_col
+  padding: $padv $padh
+
+body
+  color: gold
+  background: #333
+
+button
+  @include tlrc-block($padv: 2px, $padh: 10px)
+  color: gold
+
+h1
+  @include tlrc-block($padh: 25px)
+  font-weight: bold
+  font-size: 30px
+  width: 280px
+  margin: 8px auto
+
+  span
+    display: block
+    text-align: center
+
+    &.snd
+      font-size: 38px
+
+#tlrc-menu
+  @include tlrc-block
+  box-sizing: border-box
+  background: $back_col
+  width: 220px
+  position: absolute
+  top: 110px
+  left: 0
+  max-height: calc(100vh - 150px)
+  padding-left: 22px
+  padding-bottom: 11px
+
+  h2
+    text-align: center
+    padding: 2px
+    margin: 3px auto
+
+  .entry
+    text-decoration: underline
+    cursor: pointer
+
+    &:hover
+      background: $brd_col
+
+    &.selected
+      background: $brd_col
+      text-decoration: none
+      font-weight: bold
+
+#tlrc-menu-btn
+  display: none
+  position: absolute
+  top: 90px
+  left: 5px
+  width: fit-content
+
+#tlrc-text
+  @include tlrc-block($padv: 0)
+  margin-left: 230px
+  padding-bottom: 42px
+
+  .tlrc-article
+    display: none
+
+    .title
+      display: none
+
+#tlrc-veil
+  background: #0008
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  display: none
+
+#tlrc-version
+  @include tlrc-block($padv: 2px, $padh: 4px)
+  font-size: 11px
+  text-align: center
+  width: 90px
+  margin: 6px auto
+
+@media (max-width: 700px)
+  #tlrc-menu
+    display: none
+    top: 20px
+    width: 250px
+    left: calc(50vw - 120px)
+
+  #tlrc-menu-btn
+    display: block
+
+  #tlrc-text
+    margin-left: 10px
+
+@media (min-width: 700px)
+  #tlrc-menu
+    border-left: 0
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+

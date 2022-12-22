@@ -1,0 +1,30 @@
+{
+  "author": "othelarian <le.maitre.killian@gmail.com>",
+  "name": "solid-octo-engine",
+  "main": "app/main.js",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "cake build",
+    "release": "cake github",
+    "serve": "cake serve"
+  },
+  "description": "this compendium contains all the rules of the lost rat",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/othelarian/the-lost-rat-compendium"
+  },
+  "devDependencies": {
+    "bach": "^1.2.0",
+    "chokidar": "^3.5.3",
+    "coffeescript": "^2.7.0",
+    "connect": "^3.7.0",
+    "fs-extra": "10.1.0",
+    "pug": "^3.0.2",
+    "rimraf": "^3.0.0",
+    "rollup": "^3.7.5",
+    "rollup-terser": "^1.0.3",
+    "sass": "^1.51.0",
+    "serve-static": "^1.15.0",
+    "sharp": "^0.31.1"
+  }
+}

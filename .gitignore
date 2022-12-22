@@ -1,0 +1,7 @@
+dist
+node_modules
+out
+
+config.coffee
+package-lock.json
+
