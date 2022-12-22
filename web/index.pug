@@ -6,6 +6,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width,initial-scale=1')
     meta(name='theme-color', content=pwa.theme_color)
+    meta(name='description', content=pwa.description)
     link(rel='stylesheet', href='style.css')
     link(rel='icon', href='icons/icon_128.png')
     link(rel='manifest', href=manifest_path)
@@ -16,16 +17,44 @@ html(lang='en')
       span The Lost Rat
       span.snd Compendium
     #tlrc-text
-      .tlrc-article(style='display:block')
-        span.title Welcome
+      #tlrc-article-welcome.tlrc-article
+        .title Welcome
         h2 Welcome, dear reader!
         div Don't be shy, take a seat. Here you'll find every little rules feverishly crafted by the lost rat, recovered by chevalrous heroes who flee the sundered maze just before it collapse.
         div You can access this rules by the menu on your left.
         div Have a nice read.
-      .tlrc-article
+      #tlrc-article-test.tlrc-article
         span.title Test 1
         h2 test 1
         div test 12
+      //
+      #tlrc-article-momentum.tlrc-article
+        .title Momentum system
+        h2 The Momentum system
+        //
+        // TODO
+        //
+      //
+      #tlrc-article-f-elt.tlrc-article
+        .title Four Elements
+        h2 The Four Elements
+        //
+        // TODO
+        //
+      //
+      #tlrc-article-assets.tlrc-article
+        .title Assets system
+        h2 The Assets system
+        //
+        // TODO
+        //
+      //
+      #tlrc-article-thanks.tlrc-article
+        .title Thanks
+        h2 Thanks
+        //
+        // TODO
+        //
     #tlrc-version= version
     #tlrc-menu-btn
       button(onclick='TLRC.menu.act("open")') Menu

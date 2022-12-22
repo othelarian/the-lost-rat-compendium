@@ -8,6 +8,8 @@ createElt = (tag, attrs, txt, html) ->
 
 getId = (id) -> document.getElementById id
 
+setDis = (id, display) -> getId(id).style.display = display
+
 TLRCmenu =
   act: (action) ->
     switch (action)
@@ -19,25 +21,18 @@ TLRCmenu =
     TLRC.menu.opened = false
   init: ->
     menu = getId 'tlrc-menu-inner'
-    handleArticle = (article, i) ->
+    handleArticle = (article) ->
       title = article.querySelector('.title').innerText
+      id = article.getAttribute('id').substring 13
+      TLRC.routes.push id
       attrs = [
         ['class', 'entry']
-        ['onclick', "TLRC.menu.select(#{i})"]
-        ['id', "tlrc-entry-#{i}"]
+        ['onclick', "TLRC.show('#{id}')"]
+        ['id', "tlrc-entry-#{id}"]
       ]
       entry = createElt 'div', attrs, title
       menu.append entry
-      article.setAttribute 'id', "tlrc-article-#{i}"
-      if i is 0 then entry.classList.add 'selected'
-    handleArticle article, i for article, i in document.querySelectorAll '.tlrc-article'
-  selected: 0
-  select: (i) ->
-    getId("tlrc-entry-#{TLRC.menu.selected}").classList.remove 'selected'
-    getId("tlrc-article-#{TLRC.menu.selected}").style.display = 'none'
-    getId("tlrc-entry-#{i}").classList.add 'selected'
-    getId("tlrc-article-#{i}").style.display = 'block'
-    TLRC.menu.selected = i
+    handleArticle article for article in document.querySelectorAll '.tlrc-article'
   opened: false
   open: ->
     getId('tlrc-menu').setAttribute 'style', 'display:block'
@@ -47,10 +42,32 @@ TLRCmenu =
     if TLRC.menu.opened and window.innerWidth > 700 then TLRC.menu.close()
 
 TLRC =
+  article: ''
+  routes: []
   menu: TLRCmenu
   init: ->
     window.addEventListener 'resize', TLRC.menu.resize
     TLRC.menu.init()
+    TLRC.reach()
+    window.addEventListener 'hashchange', TLRC.reach
+  show: (article) ->
+    if TLRC.article isnt ''
+      setDis "tlrc-article-#{TLRC.article}", 'none'
+      getId("tlrc-entry-#{TLRC.article}").classList.remove 'selected'
+    setDis "tlrc-article-#{article}", 'block'
+    getId("tlrc-entry-#{article}").classList.add 'selected'
+    location.hash = article
+    TLRC.article = article
+  reach: ->
+    article =
+      if location.hash is '' then 'welcome'
+      else
+        hsh = location.hash.substring 1
+        if TLRC.routes.includes hsh then hsh
+        else
+          location.hash = ''
+          'welcome'
+    TLRC.show article
 
 window.TLRC = TLRC
 

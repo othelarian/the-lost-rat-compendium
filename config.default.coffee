@@ -12,7 +12,7 @@ exports.cfg =
     src: ["#{pwapath}/icon.pug"]
     out: "#{icndir}/icon.svg"
   pwa:
-    background_color: 'darkgray'
+    background_color: '#333'
     description: 'The compendium of all the rules made by the lost rat'
     display: 'standalone'
     icon_sizes: [128, 192, 256, 512]
@@ -26,7 +26,7 @@ exports.cfg =
     start_url: 'index.html'
     theme_color: '#333'
   static: 'static'
-  version: '0.1.0'
+  version: '0.2.0'
   web:
     html:
       src: ("#{webpath}/#{file}" for file in ['index.pug'])
