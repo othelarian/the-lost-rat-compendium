@@ -1,6 +1,6 @@
 const OFFLINE_VERSION = 2;
 const CACHE_NAME = "tlrc_offline";
-const OFFLINE_URL = "index.html";
+const OFFLINE_URL = "/the-lost-rat-compendium/index.html";
 
 self.addEventListener("install", (evt) => {
   evt.waitUntil((async () => {
