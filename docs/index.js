@@ -9,5 +9,5 @@
                                                                                                    init:function(){return window.addEventListener("resize",e.menu.resize),e.menu.init(),e.reach(),window.addEventListener("hashchange",e.reach)},show:function(t){return""!==e.article&&(i(`tlrc-article-${e.article}`,"none"),r(`tlrc-entry-${e.article}`).classList.remove("selected")),i(`tlrc-article-${t}`,"block"),r(`tlrc-entry-${t}`).classList.add("selected"),location.hash=t,e.article=t},
                                                                                                    reach:function(){var t,n;return t=""===location.hash?"welcome":(n=location.hash.substring(1),e.routes.includes(n)?n:(location.hash="","welcome")),e.show(t)}},window.TLRC=e,
   window.initTlrc=function(){return null!==navigator.serviceWorker&&(console.log("loading sw"),navigator.serviceWorker.register("sw.js",
-                                                                        {"scope":"https://othelarian.github.io/the-lost-rat-compendium"}
+                                                                        {"scope":"https://othelarian.github.io/the-lost-rat-compendium/"}
                 )),e.init()}}();
