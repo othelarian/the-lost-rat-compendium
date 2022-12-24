@@ -3,4 +3,4 @@
   "lang":"en","background_color":"#333","theme_color":"#333",
   "start_url":"/the-lost-rat-compendium/index.html",
   "icons":[{"src":"icons/icon_128.png","sizes":"128x128","type":"image/png"},{"src":"icons/icon_192.png","sizes":"192x192","type":"image/png"},{"src":"icons/icon_256.png","sizes":"256x256","type":"image/png","purpose":"maskable"},{"src":"icons/icon_512.png","sizes":"512x512","type":"image/png","purpose":"maskable"},{"src":"icons/icon.svg","sizes":"72x72 96x96 1024x1024"}],
-  "scope":"/the-lost-rat-compendium"}
+  "scope":"/the-lost-rat-compendium/"}
