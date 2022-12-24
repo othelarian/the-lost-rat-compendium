@@ -14,3 +14,9 @@ self.addEventListener 'activate', (evt) =>
       await self.registration.navigationPreload.enable()
   )())
 
+self.addEventListener 'fetch', (evt) =>
+  if evt.request.mode is 'navigate'
+    #
+    # this is just to make it work
+    null
+    #

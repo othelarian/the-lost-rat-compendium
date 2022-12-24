@@ -72,8 +72,7 @@ TLRC =
 window.TLRC = TLRC
 
 window.initTlrc = ->
-  if navigator.serviceWorker isnt null
-    console.log 'loading sw'
-    navigator.serviceWorker.register 'sw.js'
+  if navigator.serviceWorker?
+    navigator.serviceWorker.register 'sw.js', {scope: '/the-lost-rat-compendium/'}
   TLRC.init()
 
